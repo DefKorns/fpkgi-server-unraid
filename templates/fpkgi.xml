@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>fpkgi-server</Name>
+    <!-- <Repository>ps4-fpkgi-json:latest</Repository> -->
+    <Repository>ghcr.io/DefKorns/fpkgi-server-unraid/fpkgi-server:latest</Repository>
+    <Registry>https://github.com/DefKorns/fpkgi-server-unraid</Registry>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Shell>bash</Shell>
+
+    <WebUI>http://[IP]:[PORT:8086]</WebUI>
+
+
+    <Config Name="Server Files" Target="/data" Default="/mnt/user/games/ps4" Mode="rw" Description="PKG storage + JSON database" Type="Path" Display="always" Required="true" />
+
+    <Config Name="Server URL" Target="SERVER_URL" Default="http://192.168.1.10/ps4/" Mode="" Description="HTTP Server Port" Type="Variable" Display="always" Required="true" />
+
+    <Config Name="HTTP Directory" Target="HTTP_DIR" Default="/data" Mode="" Description="HTTP serving directory" Type="Variable" Display="always" Required="true" />
+
+    <Config Name="PUID" Target="PUID" Default="1000" Mode="" Description="User ID" Type="Variable" Display="advanced" />
+
+    <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID" Type="Variable" Display="advanced" />
+
+    <Config Name="Timezone" Target="TZ" Default="Europe/Lisbon" Mode="" Description="Timezone" Type="Variable" Display="advanced" />
+
+    <Config Name="Container Port" ContainerPort="8086" HostPort="8086" Protocol="tcp" />
+    <Config Type="Variable" Name="LOG_DEBUG" Target="LOG_DEBUG" Default="0" Description="Enable debug logging (1 = ON, 0 = OFF)" />
+
+</Container>
