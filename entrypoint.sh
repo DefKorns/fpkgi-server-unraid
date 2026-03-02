@@ -12,7 +12,11 @@ umask 000
 [ -f /tmp/pkg_server.lock ] && rm -f /tmp/pkg_server.lock
 [ ! -f /data/index.html ] && cp -f /index.html /data/index.html
 
-SERVER_URL="${SERVER_URL:-}"
+# SERVER_URL="${SERVER_URL:-}"
+HOST_IP=$(hostname -i)
+PORT=${HTTP_PORT:-8086}
+
+SERVER_URL="http://${HOST_IP}:${PORT}"
 LOG_DEBUG="${LOG_DEBUG:-0}"
 
 if [ -z "$SERVER_URL" ]; then
