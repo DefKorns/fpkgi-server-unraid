@@ -17,4 +17,4 @@ RUN chmod +x /entrypoint.sh
 COPY index.html /index.html
 
 EXPOSE 8080
-CMD ["sh", "-c", "busybox httpd -f -p ${HTTP_PORT} -h ${HTTP_DIR} & /entrypoint.sh"]
+CMD ["sh", "-c", "busybox httpd -f -p 8080 -h ${HTTP_DIR} & /entrypoint.sh"]
